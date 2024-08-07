@@ -1,6 +1,15 @@
 // TODO: write the validation functions
 
+function isValidName(name) {
+  if (typeof name === "string" && name.trim().length > 3) {
+    return true;
+  }
+  return false;
+}
 
+function hoursAttended(start, end) {
+  return typeof start === "number" && typeof end === "number" && start <= end;
+}
 
 // tests:
 console.log(isValidName("Frank") === true);

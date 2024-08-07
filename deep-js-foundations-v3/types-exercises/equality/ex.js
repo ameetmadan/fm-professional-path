@@ -1,6 +1,15 @@
 // TODO: write `findAll(..)`
 
-
+function findAll(value,arr) {
+	if (Array.isArray(arr)) {
+		let result = [];
+		for (let v of arr) {
+			if (v === value) result.push(v);
+		}
+		return result;
+	}
+	return [];
+}
 
 // tests:
 var myObj = { a: 2 };
