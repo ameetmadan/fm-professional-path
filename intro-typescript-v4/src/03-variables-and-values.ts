@@ -1,13 +1,12 @@
-//* Variable Declarations & Inference
+//* Variable Declarations & Inference */
 let temperature = 6 //! inference
-/*
+
 // temperature = "warm"  //! type-checking
-// const humidity = 79  //! literal type
+const humidity = 79  //! literal type
 
 //* A type as a set of allowed values
-/*
-// temperature = 23 //✔️ (1)  - re-assignability of a let
-// temperature = humidity; //! (2) - type-checking
+temperature = 23 //✔️ (1)  - re-assignability of a let
+temperature = humidity; //! (2) - type-checking
 // humidity = temperature; //! (3) - number is not of type `79`
 // humidity = 79; //✔️ (4) - 79 is of type `79`
 // humidity = 78; //! (5) - 78 is not of type `79`
@@ -32,7 +31,7 @@ let temperature = 6 //! inference
 // let endTime
 
 // setTimeout(() => {
-//     endTime = 0
+//     endTime = 0 
 //     endTime = new Date()
 // }, RANDOM_WAIT_TIME)
 
