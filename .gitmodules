@@ -1,0 +1,3 @@
+[submodule "coffeemasters-vanilla"]
+	path = coffeemasters-vanilla
+	url = ./coffeemasters-vanilla
