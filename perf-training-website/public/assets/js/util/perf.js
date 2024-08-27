@@ -9,12 +9,12 @@
 
   const payload = {
     url: window.location.href,
-    dcl: 0,
-    load: 0,
-    fcp: 0,
-    lcp: 0,
-    cls: 0,
-    fid: 0
+    dcl: 0, // DOM Content Loaded
+    load: 0, // Page Load
+    fcp: 0, // First Contentful Paint
+    lcp: 0, // Largest Contentful Paint
+    cls: 0, // Cumulative Layout Shift
+    fid: 0  // First Input Delay
   }
 
   // Navigation Performance Timings
@@ -28,7 +28,7 @@
   });
 
   // First Contentful Paint
-  new PerformanceObserver((entryList) => {
+  var fcpObserver = new PerformanceObserver((entryList) => {
     let entries = entryList.getEntries() || [];
     entries.forEach((entry) => {
       if (entry.name === "first-contentful-paint") {
@@ -39,7 +39,7 @@
   }).observe({ type: "paint", buffered: true });
 
   // Largest Contentful Paint
-  new PerformanceObserver((entryList) => {
+  var lcpObserver = new PerformanceObserver((entryList) => {
     let entries = entryList.getEntries() || [];
     entries.forEach((entry) => {
       if (entry.startTime > payload.lcp) {
@@ -50,7 +50,7 @@
   }).observe({ type: "largest-contentful-paint", buffered: true });
 
   // Cumulative Layout Shift
-  new PerformanceObserver((entryList) => {
+  var clsObserver = new PerformanceObserver((entryList) => {
     let entries = entryList.getEntries() || [];
     entries.forEach((entry) => {
       if (!entry.hadRecentInput) {
@@ -61,7 +61,7 @@
   }).observe({ type: "layout-shift", buffered: true });
 
   // First Input Delay
-  new PerformanceObserver((entryList) => {
+  var fidObserver = new PerformanceObserver((entryList) => {
     let entries = entryList.getEntries() || [];
     entries.forEach((entry) => {
       payload.fid = entry.processingStart - entry.startTime;

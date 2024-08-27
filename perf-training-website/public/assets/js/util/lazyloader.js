@@ -15,6 +15,7 @@
 })(function lazyLoader() { /* the document is now ready. */
 
   var lazyEls = [].slice.call(document.querySelectorAll("[data-src]"));
+  // anything with a data-src attribute will be lazy loaded
 
   function load(el) {
     var src = el.getAttribute("data-src");
@@ -28,6 +29,7 @@
   }
 
   if ("IntersectionObserver" in window) {
+    // allows us to lazy load images that are in the viewport
     var lazyObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
